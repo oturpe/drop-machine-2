@@ -12,15 +12,24 @@
 // One secind, given in units of LOOP_DELAY
 #define DECI_SECOND  5
 
-// Definition of indicator pin data direction and data ports and pins
-#define INDICATOR_DATA_DIR DDRD
-#define INDICATOR_DATA_DIR_PIN DDD6
-#define INDICATOR_DATA PORTD
-#define INDICATOR_DATA_PIN PORTD6
+// Definition of indicator pin.
+#define INDICATOR_DATA_DIR DDRE
+#define INDICATOR_DATA_DIR_PIN DDE1
+#define INDICATOR_DATA PORTE
+#define INDICATOR_DATA_PIN PORTE1
 
 // Half length of one complete indicator period. In other words, the time the
 // indicator spends on and off. Given in units of LOOP_DELAY.
 #define INDICATOR_HALF_PERIOD 25
+
+// Definition of flush button pin.
+#define FLUSH_BUTTON_DATA_DIR DDRE
+#define FLUSH_BUTTON_DATA_DIR_PIN DDE2
+#define FLUSH_BUTTON_DATA PORTE
+#define FLUSH_BUTTON_DATA_PIN PORTE2
+#define FLUSH_BUTTON_INPUT PINE
+#define FLUSH_BUTTON_INPUT_PIN PINE2
+
 
 // Definition of valve control pins
 #define VALVE_MIDDLE_DATA_DIR DDRB

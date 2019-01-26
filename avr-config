@@ -1,7 +1,7 @@
 projectName=drop-machine
 sourceDir=src
 targetDir=target
-mcu=attiny2313
+mcu=atmega162
 programmer=avrispmkii
 baudrate=19200
 port=usb

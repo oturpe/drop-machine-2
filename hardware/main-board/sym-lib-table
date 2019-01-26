@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name drop-machine-rescue)(type Legacy)(uri ${KIPRJMOD}/drop-machine-rescue.lib)(options "")(descr ""))
+  (lib (name oturpe-kicad-lib)(type Legacy)(uri /home/otto/src/Elektroniikka/Omat/oturpe-kicad-lib/oturpe-kicad-lib.lib)(options "")(descr ""))
+)

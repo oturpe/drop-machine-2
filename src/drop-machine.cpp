@@ -32,8 +32,13 @@ void toggleIndicator() {
 }
 
 int main() {
+    // Indicator pin as output
     INDICATOR_DATA_DIR |= BV(INDICATOR_DATA_DIR_PIN);
 
+    // Flush button is input with pullup enable
+    FLUSH_BUTTON_DATA |= BV(FLUSH_BUTTON_DATA_PIN);
+
+    // Valce control pins as output
     VALVE_MIDDLE_DATA_DIR |= BV(VALVE_MIDDLE_DATA_DIR_PIN);
     VALVE_1_DATA_DIR |= BV(VALVE_1_DATA_DIR_PIN);
     VALVE_2_DATA_DIR |= BV(VALVE_2_DATA_DIR_PIN);
@@ -42,6 +47,7 @@ int main() {
     VALVE_5_DATA_DIR |= BV(VALVE_5_DATA_DIR_PIN);
     VALVE_6_DATA_DIR |= BV(VALVE_6_DATA_DIR_PIN);
 
+    // Initialize valve controllers
     ValveController controllerMiddle(
         VALVE_MIDDLE_DATA_REF,
         VALVE_MIDDLE_DATA_PIN
@@ -154,6 +160,12 @@ int main() {
         controller4.run();
         controller5.run();
         controller6.run();
+
+        if (!(FLUSH_BUTTON_INPUT & BV(FLUSH_BUTTON_INPUT_PIN)))
+        {
+            // Run the flush routine if flush button is down.
+            // TODO: Implement
+        }
 
         _delay_ms(LOOP_DELAY);
     }
