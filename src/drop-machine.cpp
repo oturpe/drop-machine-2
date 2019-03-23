@@ -38,7 +38,7 @@ int main() {
     // Flush button is input with pullup enable
     FLUSH_BUTTON_DATA |= BV(FLUSH_BUTTON_DATA_PIN);
 
-    // Valce control pins as output
+    // Valve control pins as output
     VALVE_MIDDLE_DATA_DIR |= BV(VALVE_MIDDLE_DATA_DIR_PIN);
     VALVE_INNER_0_DATA_DIR |= BV(VALVE_INNER_0_DATA_DIR_PIN);
     VALVE_INNER_1_DATA_DIR |= BV(VALVE_INNER_1_DATA_DIR_PIN);
