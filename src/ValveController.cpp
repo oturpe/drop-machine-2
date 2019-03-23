@@ -30,7 +30,7 @@ void ValveController::run() {
             PORTB &= ~BV(pin);
             break;
         case C:
-            // Attiny2313 does not have port C
+            PORTC &= ~BV(pin);
             break;
         case D:
             PORTD &= ~BV(pin);
@@ -50,7 +50,7 @@ void ValveController::open(uint16_t period) {
         PORTB |= BV(pin);
         break;
     case C:
-        // Attiny2313 does not have port C
+        PORTC |= BV(pin);
         break;
     case D:
         PORTD |= BV(pin);

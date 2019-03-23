@@ -649,7 +649,7 @@ L drop-machine-rescue:Crystal Y?
 U 1 1 5B9AD92E
 P 1150 4150
 F 0 "Y?" H 1150 4300 50  0000 C CNN
-F 1 "6 Mhz" H 1150 4000 50  0000 C CNN
+F 1 "16 Mhz" H 1150 4000 50  0000 C CNN
 F 2 "" H 1150 4150 50  0001 C CNN
 F 3 "" H 1150 4150 50  0001 C CNN
 	1    1150 4150
@@ -1285,41 +1285,41 @@ Wire Wire Line
 Text Label 4000 4400 0    60   ~ 0
 V0.0
 Text Label 4000 4500 0    60   ~ 0
-V1.0
-Text Label 4000 4600 0    60   ~ 0
 V1.1
-Text Label 4000 5150 0    60   ~ 0
+Text Label 4000 4600 0    60   ~ 0
 V1.2
+Text Label 4000 5150 0    60   ~ 0
+V2.8
 Text Label 4000 5250 0    60   ~ 0
-V1.3
+V2.7
 Text Label 4000 5350 0    60   ~ 0
-V1.4
+V2.5
 Text Label 4000 5450 0    60   ~ 0
-V1.5
+V2.4
 Text Label 4000 5550 0    60   ~ 0
-V2.0
+V2.2
 Text Label 4000 5650 0    60   ~ 0
 V2.1
 Text Label 4000 5750 0    60   ~ 0
-V2.2
+V1.5
 Text Label 4000 5850 0    60   ~ 0
-V2.3
+V1.4
 Text Label 4000 6000 0    60   ~ 0
-V2.4
+V1.0
 Text Label 4000 6100 0    60   ~ 0
-V2.5
+V1.3
 Text Label 4000 6200 0    60   ~ 0
-V2.6
+V2.0
 Text Label 4000 6300 0    60   ~ 0
-V2.7
+V2.3
 Text Label 4000 6400 0    60   ~ 0
-V2.8
+V2.6
 Text Label 4000 6500 0    60   ~ 0
 V2.9
 Text Label 4000 6600 0    60   ~ 0
-V2.10
-Text Label 4000 6700 0    60   ~ 0
 V2.11
+Text Label 4000 6700 0    60   ~ 0
+V2.10
 Wire Bus Line
 	6800 5950 7200 5950
 Entry Wire Line
@@ -1547,10 +1547,8 @@ Wire Wire Line
 Connection ~ 10100 5350
 Wire Wire Line
 	10000 5550 10100 5550
-Connection ~ 10100 5550
 Wire Wire Line
 	10000 5750 10100 5750
-Connection ~ 10100 5750
 Wire Wire Line
 	10000 5950 10100 5950
 Connection ~ 10100 5950
@@ -1570,53 +1568,42 @@ F 3 "" H 10100 6250 50  0001 C CNN
 $EndComp
 Text Label 9300 5050 0    60   ~ 0
 U0.0
-$Comp
-L drop-machine-rescue:Conn_02x13_Counter_Clockwise J?
-U 1 1 5B9EBB2F
-P 9700 5650
-F 0 "J?" H 9750 6350 50  0000 C CNN
-F 1 "Valves" H 9750 4950 50  0000 C CNN
-F 2 "" H 9700 5650 50  0001 C CNN
-F 3 "" H 9700 5650 50  0001 C CNN
-	1    9700 5650
-	1    0    0    -1  
-$EndComp
 Text Label 9300 5150 0    60   ~ 0
-U1.0
-Text Label 9300 5250 0    60   ~ 0
 U1.1
-Text Label 9300 5350 0    60   ~ 0
+Text Label 9300 5250 0    60   ~ 0
 U1.2
-Text Label 9300 5450 0    60   ~ 0
-U1.3
-Text Label 9300 5550 0    60   ~ 0
+Text Label 9300 5350 0    60   ~ 0
 U1.4
-Text Label 9300 5650 0    60   ~ 0
+Text Label 9300 5450 0    60   ~ 0
 U1.5
-Text Label 9300 5750 0    60   ~ 0
-U2.0
-Text Label 9300 5850 0    60   ~ 0
+Text Label 9300 5550 0    60   ~ 0
 U2.1
-Text Label 9300 5950 0    60   ~ 0
+Text Label 9300 5650 0    60   ~ 0
 U2.2
-Text Label 9300 6050 0    60   ~ 0
-U2.3
-Text Label 9300 6150 0    60   ~ 0
+Text Label 9300 5750 0    60   ~ 0
 U2.4
-Text Label 9300 6250 0    60   ~ 0
+Text Label 9300 5850 0    60   ~ 0
 U2.5
-Text Label 10200 5050 0    60   ~ 0
-U2.6
-Text Label 10200 5250 0    60   ~ 0
+Text Label 9300 5950 0    60   ~ 0
 U2.7
-Text Label 10200 5450 0    60   ~ 0
+Text Label 9300 6050 0    60   ~ 0
 U2.8
-Text Label 10200 5650 0    60   ~ 0
-U2.9
-Text Label 10200 5850 0    60   ~ 0
+Text Label 9250 6150 0    60   ~ 0
 U2.10
-Text Label 10200 6050 0    60   ~ 0
+Text Label 9250 6250 0    60   ~ 0
 U2.11
+Text Label 10200 5050 0    60   ~ 0
+U1.0
+Text Label 10200 5250 0    60   ~ 0
+U1.3
+Text Label 10200 5450 0    60   ~ 0
+U2.0
+Text Label 10200 5650 0    60   ~ 0
+U2.3
+Text Label 10200 5850 0    60   ~ 0
+U2.6
+Text Label 10200 6050 0    60   ~ 0
+U2.9
 Wire Wire Line
 	4000 3000 4100 3000
 $Comp
@@ -1769,8 +1756,6 @@ Wire Wire Line
 Wire Wire Line
 	10100 5350 10100 5550
 Wire Wire Line
-	10100 5550 10100 5750
-Wire Wire Line
 	10100 5750 10100 5950
 Wire Wire Line
 	10100 5950 10100 6150
@@ -1826,6 +1811,20 @@ F 3 "~" H 1950 7300 50  0001 C CNN
 $EndComp
 NoConn ~ 1750 7100
 NoConn ~ 1750 7000
+$Comp
+L power:+12V #PWR?
+U 1 1 5C540623
+P 10100 4950
+F 0 "#PWR?" H 10100 4800 50  0001 C CNN
+F 1 "+12V" H 10250 5050 50  0000 C CNN
+F 2 "" H 10100 4950 50  0001 C CNN
+F 3 "" H 10100 4950 50  0001 C CNN
+	1    10100 4950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10100 5150 10100 4950
+Connection ~ 10100 5150
 Wire Bus Line
 	4400 4550 9950 4550
 Wire Bus Line
@@ -1846,4 +1845,15 @@ Wire Bus Line
 	9100 4750 9100 6150
 Wire Bus Line
 	4400 4500 4400 6800
+$Comp
+L Connector_Generic:Conn_02x13_Odd_Even J?
+U 1 1 5C949878
+P 9700 5650
+F 0 "J?" H 9750 6467 50  0000 C CNN
+F 1 "Valves" H 9750 6376 50  0000 C CNN
+F 2 "" H 9700 5650 50  0001 C CNN
+F 3 "~" H 9700 5650 50  0001 C CNN
+	1    9700 5650
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
