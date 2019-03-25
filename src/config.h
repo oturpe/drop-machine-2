@@ -146,8 +146,11 @@
 #define VALVE_OUTER_11_DATA_PIN PORTD6
 #define VALVE_OUTER_11_DATA_REF D
 
-// Length of valve opening during a drop. Measured in units of LOOP_DELAY
+// Length of valve opening during a drop, given in units of LOOP_DELAY
 #define DROP_SIZE 4
-// Multiplier for adjusting the drop sequence speed
-#define DROP_FREQUENCY_MULTIPLIER 50
-
+// Time between two different shapes, given in units of LOOP_DELAY
+#define PATTERN_INTERVAL (10*SECOND)
+// Length of initialization time when all valves are open, , given in units of LOOP_DELAY
+#define INITIALIZATION_DURATION 3*SECOND
+// Length of time after initialization before sequence start
+#define INITIALIZATION_COOLDOWN 7*SECOND

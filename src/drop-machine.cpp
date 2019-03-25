@@ -82,6 +82,64 @@ int main() {
 
     uint32_t patternCounter = 0;
 
+    controllerMiddle.open(INITIALIZATION_DURATION);
+    controllerInner0.open(INITIALIZATION_DURATION);
+    controllerInner1.open(INITIALIZATION_DURATION);
+    controllerInner2.open(INITIALIZATION_DURATION);
+    controllerInner3.open(INITIALIZATION_DURATION);
+    controllerInner4.open(INITIALIZATION_DURATION);
+    controllerInner5.open(INITIALIZATION_DURATION);
+    controllerOuter0.open(INITIALIZATION_DURATION);
+    controllerOuter1.open(INITIALIZATION_DURATION);
+    controllerOuter2.open(INITIALIZATION_DURATION);
+    controllerOuter3.open(INITIALIZATION_DURATION);
+    controllerOuter4.open(INITIALIZATION_DURATION);
+    controllerOuter5.open(INITIALIZATION_DURATION);
+    controllerOuter6.open(INITIALIZATION_DURATION);
+    controllerOuter7.open(INITIALIZATION_DURATION);
+    controllerOuter8.open(INITIALIZATION_DURATION);
+    controllerOuter9.open(INITIALIZATION_DURATION);
+    controllerOuter10.open(INITIALIZATION_DURATION);
+    controllerOuter11.open(INITIALIZATION_DURATION);
+
+    uint32_t initCounter = 0;
+    while(initCounter++ < INITIALIZATION_DURATION) {
+        if (indicatorCounter == INDICATOR_HALF_PERIOD) {
+            indicatorCounter = 0;
+            toggleIndicator();
+        }
+        else {
+            indicatorCounter++;
+        }
+
+        controllerMiddle.run();
+        controllerInner0.run();
+        controllerInner1.run();
+        controllerInner2.run();
+        controllerInner3.run();
+        controllerInner4.run();
+        controllerInner5.run();
+        controllerOuter0.run();
+        controllerOuter1.run();
+        controllerOuter2.run();
+        controllerOuter3.run();
+        controllerOuter4.run();
+        controllerOuter5.run();
+        controllerOuter6.run();
+        controllerOuter7.run();
+        controllerOuter8.run();
+        controllerOuter9.run();
+        controllerOuter10.run();
+        controllerOuter11.run();
+
+        _delay_ms(LOOP_DELAY);
+    }
+
+    initCounter = 0;
+    while(initCounter++ < INITIALIZATION_COOLDOWN) {
+        _delay_ms(LOOP_DELAY);
+    }
+
     while (true) {
 
         if (indicatorCounter == INDICATOR_HALF_PERIOD) {
@@ -93,42 +151,79 @@ int main() {
         }
 
         patternCounter++;
+        uint8_t generatorIndex = 0;
 
-        // Single drop in the middle
-        if (patternCounter == 1) {
+        // 1 Single drop in the middle
+        if (patternCounter == ((generatorIndex++)*PATTERN_INTERVAL) + 1) {
             controllerMiddle.open(DROP_SIZE);
         }
 
-        // Single drop on one vertex
-        else if (patternCounter == 10*SECOND) {
-            controllerInner0.open(DROP_SIZE);
-        }
-
-        // Single drop on opposite side
-        else if (patternCounter == 20*SECOND) {
+        // 2 Water Triangle
+        else if (patternCounter == ((generatorIndex++)*PATTERN_INTERVAL) + 1) {
+            controllerInner1.open(DROP_SIZE);
             controllerInner3.open(DROP_SIZE);
+            controllerInner5.open(DROP_SIZE);
         }
 
-        // Triangle shape followed by drop in the middle
-        else if (patternCounter == 30*SECOND) {
-            controllerInner0.open(DROP_SIZE);
-            controllerInner2.open(DROP_SIZE);
-            controllerInner4.open(DROP_SIZE);
+        // 3 Off Centre Drop
+        else if (patternCounter == ((generatorIndex++)*PATTERN_INTERVAL) + 1) {
+            // Nothing here - moved to end.
         }
-        else if (patternCounter == 32*SECOND) {
+
+        // 4 Swastika
+        else if (patternCounter == ((generatorIndex++)*PATTERN_INTERVAL) + 1) {
             controllerMiddle.open(DROP_SIZE);
-        }
-
-        // Triangle and middle
-        else if (patternCounter == 42*SECOND) {
             controllerInner1.open(DROP_SIZE);
             controllerInner3.open(DROP_SIZE);
             controllerInner5.open(DROP_SIZE);
+            controllerOuter1.open(DROP_SIZE);
+            controllerOuter5.open(DROP_SIZE);
+            controllerOuter9.open(DROP_SIZE);
+        }
+
+        // 5 Fire Triangle
+        else if (patternCounter == ((generatorIndex++)*PATTERN_INTERVAL) + 1) {
+            controllerInner0.open(DROP_SIZE);
+            controllerInner2.open(DROP_SIZE);
+            controllerInner4.open(DROP_SIZE);
+        }
+
+        // 6 Bar
+        else if (patternCounter == ((generatorIndex++)*PATTERN_INTERVAL) + 1) {
+            controllerOuter2.open(DROP_SIZE);
+            controllerInner1.open(DROP_SIZE);
             controllerMiddle.open(DROP_SIZE);
+            controllerInner4.open(DROP_SIZE);
+            controllerOuter8.open(DROP_SIZE);
         }
 
-        // Hexagon
-        else if (patternCounter == 52*SECOND) {
+        // 7 Semi-Swastika
+        else if (patternCounter == ((generatorIndex++)*PATTERN_INTERVAL) + 1) {
+            controllerMiddle.open(DROP_SIZE);
+            controllerInner0.open(DROP_SIZE);
+            controllerInner4.open(DROP_SIZE);
+            controllerOuter2.open(DROP_SIZE);
+            controllerOuter8.open(DROP_SIZE);
+        }
+
+        // 8 Large Hexagon
+        else if (patternCounter == ((generatorIndex++)*PATTERN_INTERVAL) + 1) {
+            controllerOuter0.open(DROP_SIZE);
+            controllerOuter1.open(DROP_SIZE);
+            controllerOuter2.open(DROP_SIZE);
+            controllerOuter3.open(DROP_SIZE);
+            controllerOuter4.open(DROP_SIZE);
+            controllerOuter5.open(DROP_SIZE);
+            controllerOuter6.open(DROP_SIZE);
+            controllerOuter7.open(DROP_SIZE);
+            controllerOuter8.open(DROP_SIZE);
+            controllerOuter9.open(DROP_SIZE);
+            controllerOuter10.open(DROP_SIZE);
+            controllerOuter11.open(DROP_SIZE);
+        }
+
+        // 9 Hexagon
+        else if (patternCounter == ((generatorIndex++)*PATTERN_INTERVAL) + 1) {
             controllerInner0.open(DROP_SIZE);
             controllerInner1.open(DROP_SIZE);
             controllerInner2.open(DROP_SIZE);
@@ -137,40 +232,65 @@ int main() {
             controllerInner5.open(DROP_SIZE);
         }
 
-        // Triangle followed by the other triangle
-        else if (patternCounter == 62*SECOND) {
-            controllerInner1.open(DROP_SIZE);
-            controllerInner3.open(DROP_SIZE);
-            controllerInner5.open(DROP_SIZE);
-        }
-        else if (patternCounter == 62*SECOND + 5*DECI_SECOND) {
+        // 10 Sceptre
+        // TODO: Exact timing to be set
+        else if (patternCounter == ((generatorIndex++)*PATTERN_INTERVAL) + 1) {
             controllerInner0.open(DROP_SIZE);
-            controllerInner2.open(DROP_SIZE);
-            controllerInner4.open(DROP_SIZE);
+            controllerMiddle.open(DROP_SIZE);
+            controllerInner3.open(DROP_SIZE);
+        }
+        else if (patternCounter == ((generatorIndex)*PATTERN_INTERVAL) + 2*DECI_SECOND) {
+            controllerOuter11.open(DROP_SIZE);
+            controllerOuter1.open(DROP_SIZE);
         }
 
-        // Spiral hexagon
-        else if (patternCounter == 73*SECOND) {
+        // 11 Flower of Life
+        else if (patternCounter == ((generatorIndex++)*PATTERN_INTERVAL) + 1) {
+            controllerMiddle.open(DROP_SIZE);
             controllerInner0.open(DROP_SIZE);
-        }
-        else if (patternCounter == 73*SECOND + 2*DECI_SECOND) {
             controllerInner1.open(DROP_SIZE);
-        }
-        else if (patternCounter == 73*SECOND + 4*DECI_SECOND) {
             controllerInner2.open(DROP_SIZE);
+            controllerInner3.open(DROP_SIZE);
+            controllerInner4.open(DROP_SIZE);
+            controllerInner5.open(DROP_SIZE);
+            controllerOuter0.open(DROP_SIZE);
+            controllerOuter1.open(DROP_SIZE);
+            controllerOuter2.open(DROP_SIZE);
+            controllerOuter3.open(DROP_SIZE);
+            controllerOuter4.open(DROP_SIZE);
+            controllerOuter5.open(DROP_SIZE);
+            controllerOuter6.open(DROP_SIZE);
+            controllerOuter7.open(DROP_SIZE);
+            controllerOuter8.open(DROP_SIZE);
+            controllerOuter9.open(DROP_SIZE);
+            controllerOuter10.open(DROP_SIZE);
+            controllerOuter11.open(DROP_SIZE);
         }
-        else if (patternCounter == 73*SECOND + 6*DECI_SECOND) {
+
+        // 12 Lightning
+        // TODO: Exact timing to be set
+        else if (patternCounter == ((generatorIndex++)*PATTERN_INTERVAL) + 1) {
+            controllerInner0.open(DROP_SIZE);
+            controllerMiddle.open(DROP_SIZE);
             controllerInner3.open(DROP_SIZE);
         }
-        else if (patternCounter == 73*SECOND + 8*DECI_SECOND) {
-            controllerInner4.open(DROP_SIZE);
-        }
-        else if (patternCounter == 74*SECOND) {
-            controllerInner5.open(DROP_SIZE);
+        else if (patternCounter == (generatorIndex)*PATTERN_INTERVAL + 2*DECI_SECOND) {
+            controllerOuter1.open(DROP_SIZE);
+            controllerOuter7.open(DROP_SIZE);
         }
 
         // End of sequence, start from beginning again
-        else if (patternCounter == 84*SECOND) {
+        else if (patternCounter == ((generatorIndex++)*PATTERN_INTERVAL) + 1) {
+            patternCounter = 0;
+        }
+
+        // X Off Centre Drop, comes only now
+        else if (patternCounter == ((generatorIndex++)*PATTERN_INTERVAL) + 1) {
+            controllerOuter2.open(DROP_SIZE);
+        }
+
+        // End of sequence, reset.
+        if (patternCounter == (generatorIndex++)*PATTERN_INTERVAL +1) {
             patternCounter = 0;
         }
 
