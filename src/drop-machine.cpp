@@ -82,34 +82,80 @@ int main() {
 
     uint32_t patternCounter = 0;
 
-    controllerMiddle.open(INITIALIZATION_DURATION);
-    controllerInner0.open(INITIALIZATION_DURATION);
-    controllerInner1.open(INITIALIZATION_DURATION);
-    controllerInner2.open(INITIALIZATION_DURATION);
-    controllerInner3.open(INITIALIZATION_DURATION);
-    controllerInner4.open(INITIALIZATION_DURATION);
-    controllerInner5.open(INITIALIZATION_DURATION);
-    controllerOuter0.open(INITIALIZATION_DURATION);
-    controllerOuter1.open(INITIALIZATION_DURATION);
-    controllerOuter2.open(INITIALIZATION_DURATION);
-    controllerOuter3.open(INITIALIZATION_DURATION);
-    controllerOuter4.open(INITIALIZATION_DURATION);
-    controllerOuter5.open(INITIALIZATION_DURATION);
-    controllerOuter6.open(INITIALIZATION_DURATION);
-    controllerOuter7.open(INITIALIZATION_DURATION);
-    controllerOuter8.open(INITIALIZATION_DURATION);
-    controllerOuter9.open(INITIALIZATION_DURATION);
-    controllerOuter10.open(INITIALIZATION_DURATION);
-    controllerOuter11.open(INITIALIZATION_DURATION);
-
     uint32_t initCounter = 0;
-    while(initCounter++ < INITIALIZATION_DURATION) {
+    uint32_t initSuperCounter = 0;
+    while(initSuperCounter++ < INITIALIZATION_DURATION) {
+        initCounter++;
+
         if (indicatorCounter == INDICATOR_HALF_PERIOD) {
             indicatorCounter = 0;
             toggleIndicator();
         }
         else {
             indicatorCounter++;
+        }
+
+        uint8_t initGeneratorIndex = 1;
+
+        if (initCounter == (initGeneratorIndex++)*3*DROP_SIZE + 1) {
+            controllerMiddle.open(DROP_SIZE);
+        }
+        if (initCounter == (initGeneratorIndex++)*3*DROP_SIZE + 1) {
+            controllerInner0.open(DROP_SIZE);
+        }
+        if (initCounter == (initGeneratorIndex++)*3*DROP_SIZE + 1) {
+            controllerInner1.open(DROP_SIZE);
+        }
+        if (initCounter == (initGeneratorIndex++)*3*DROP_SIZE + 1) {
+            controllerInner2.open(DROP_SIZE);
+        }
+        if (initCounter == (initGeneratorIndex++)*3*DROP_SIZE + 1) {
+            controllerInner3.open(DROP_SIZE);
+        }
+        if (initCounter == (initGeneratorIndex++)*3*DROP_SIZE + 1) {
+            controllerInner4.open(DROP_SIZE);
+        }
+        if (initCounter == (initGeneratorIndex++)*3*DROP_SIZE + 1) {
+            controllerInner5.open(DROP_SIZE);
+        }
+        if (initCounter == (initGeneratorIndex++)*3*DROP_SIZE + 1) {
+            controllerOuter0.open(DROP_SIZE);
+        }
+        if (initCounter == (initGeneratorIndex++)*3*DROP_SIZE + 1) {
+            controllerOuter1.open(DROP_SIZE);
+        }
+        if (initCounter == (initGeneratorIndex++)*3*DROP_SIZE + 1) {
+            controllerOuter2.open(DROP_SIZE);
+        }
+        if (initCounter == (initGeneratorIndex++)*3*DROP_SIZE + 1) {
+            controllerOuter3.open(DROP_SIZE);
+        }
+        if (initCounter == (initGeneratorIndex++)*3*DROP_SIZE + 1) {
+            controllerOuter4.open(DROP_SIZE);
+        }
+        if (initCounter == (initGeneratorIndex++)*3*DROP_SIZE + 1) {
+            controllerOuter5.open(DROP_SIZE);
+        }
+        if (initCounter == (initGeneratorIndex++)*3*DROP_SIZE + 1) {
+            controllerOuter6.open(DROP_SIZE);
+        }
+        if (initCounter == (initGeneratorIndex++)*3*DROP_SIZE + 1) {
+            controllerOuter7.open(DROP_SIZE);
+        }
+        if (initCounter == (initGeneratorIndex++)*3*DROP_SIZE + 1) {
+            controllerOuter8.open(DROP_SIZE);
+        }
+        if (initCounter == (initGeneratorIndex++)*3*DROP_SIZE + 1) {
+            controllerOuter9.open(DROP_SIZE);
+        }
+        if (initCounter == (initGeneratorIndex++)*3*DROP_SIZE + 1) {
+            controllerOuter10.open(DROP_SIZE);
+        }
+        if (initCounter == (initGeneratorIndex++)*3*DROP_SIZE + 1) {
+            controllerOuter11.open(DROP_SIZE);
+        }
+        if (initCounter == (initGeneratorIndex++)*3*DROP_SIZE +1) {
+            initCounter = 0;
         }
 
         controllerMiddle.run();
