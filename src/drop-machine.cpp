@@ -333,12 +333,6 @@ int main() {
         }
         generatorIndex++;
 
-        if (patternCounter == ((generatorIndex)*PATTERN_INTERVAL) + 1) {
-            patternCounter = 0;
-        }
-        generatorIndex++;
-
-
         // X Off Centre Drop, comes only now
         if (patternCounter == ((generatorIndex)*PATTERN_INTERVAL) + 1) {
             controllerOuter2.open(DROP_SIZE);
