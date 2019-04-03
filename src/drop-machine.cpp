@@ -251,7 +251,7 @@ int main() {
         if (patternCounter == ((generatorIndex)*PATTERN_INTERVAL) + 1) {
             controllerMiddle.open(DROP_SIZE);
             controllerInner0.open(DROP_SIZE);
-            controllerInner4.open(DROP_SIZE);
+            controllerInner3.open(DROP_SIZE);
             controllerOuter2.open(DROP_SIZE);
             controllerOuter8.open(DROP_SIZE);
         }
